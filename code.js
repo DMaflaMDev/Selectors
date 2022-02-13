@@ -1,70 +1,92 @@
 const APi_URL = "https://swapi.dev/api";
-const slt = document.querySelector(".container");
-
-const axios = require("axios");
 
 // people
-let people = [];
-const select1 = document.querySelector("#slc1");
+(function (){
+
+let people = document.getElementById('slc1');
+let option;
 axios
   .get(`${APi_URL}/people`)
   .then((data) => {
     data = data.data;
     data.results.forEach((person) => {
-      // people.push(person.name));
-      const select1 = document.createElement('select');
-      const option = document.createElement('option')
+      option = document.createElement('option');
+      option.innerHTML = person.name
+      people.add(option)
+    })
   })
   .catch((err) => console.log(err));
 
 
-
 // films
-let films = [];
+let films = document.getElementById('slc2');
+
 axios
   .get(`${APi_URL}/films`)
   .then((data) => {
     data = data.data;
-    data.results.forEach((film) => films.push(film.title));
+    data.results.forEach((film) => {
+      option = document.createElement('option');
+      option.innerHTML = film.title
+      films.add(option)
+    });
   })
   .catch((err) => console.log(err));
 
 // starships
-let starships = [];
+let starships = document.getElementById('slc3');
 axios
   .get(`${APi_URL}/starships`)
   .then((data) => {
     data = data.data;
-    data.results.forEach((starship) => starships.push(starship.name));
+    data.results.forEach((starship) => {
+      option = document.createElement('option');
+      option.innerHTML = starship.name
+      starships.add(option)
+    });
   })
   .catch((err) => console.log(err));
 
 // vehicles
-let vehicles = [];
+let vehicles = document.getElementById('slc4');
 axios
   .get(`${APi_URL}/vehicles`)
   .then((data) => {
     data = data.data;
-    data.results.forEach((vehicle) => vehicles.push(vehicle.name));
+    data.results.forEach((vehicle) => {
+      option = document.createElement('option');
+      option.innerHTML = vehicle.name
+      vehicles.add(option)
+    });
   })
   .catch((err) => console.log(err));
 
 // species
-let species = [];
+let species = document.getElementById('slc5');
 axios
   .get(`${APi_URL}/species`)
   .then((data) => {
     data = data.data;
-    data.results.forEach((specie) => species.push(specie.name));
+    data.results.forEach((specie) => {
+      option = document.createElement('option');
+      option.innerHTML = specie.name
+      species.add(option)
+    });
   })
   .catch((err) => console.log(err));
 
 // planets
-let planets = [];
+let planets = document.getElementById('slc6');
 axios
   .get(`${APi_URL}/planets`)
   .then((data) => {
     data = data.data;
-    data.results.forEach((planet) => planets.push(planet.name));
+    data.results.forEach((planet) => {
+      option = document.createElement('option');
+      option.innerHTML = planet.name
+      planets.add(option)
+    });
   })
   .catch((err) => console.log(err));
+
+})()
